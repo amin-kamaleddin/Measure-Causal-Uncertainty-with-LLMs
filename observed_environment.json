@@ -1,0 +1,19 @@
+{
+  "python": "3.15.0",
+  "platform": "macOS-15.7.1-x86_64-i386-64bit-Mach-O",
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "networkx": "3.7",
+    "matplotlib": "3.11.2",
+    "statsmodels": "0.15.0",
+    "pydantic": "2.14.1",
+    "httpx": "0.28.1",
+    "PyYAML": "6.0.3",
+    "pytest": "9.1.1",
+    "pyreadstat": "not installed"
+  },
+  "interpretation": "Observed local environment; not a cross-platform dependency lock or verified remote CI run"
+}

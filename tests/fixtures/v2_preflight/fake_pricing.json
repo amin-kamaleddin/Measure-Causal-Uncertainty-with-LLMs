@@ -1,0 +1,34 @@
+[
+  {
+    "model_id": "mock-family-a/fixture",
+    "fixture_only": true,
+    "input_usd_per_million": 1.0,
+    "output_usd_per_million": 2.0,
+    "supports_json_schema": true,
+    "max_context_tokens": 16384
+  },
+  {
+    "model_id": "mock-family-b/fixture",
+    "fixture_only": true,
+    "input_usd_per_million": 1.0,
+    "output_usd_per_million": 2.0,
+    "supports_json_schema": true,
+    "max_context_tokens": 16384
+  },
+  {
+    "model_id": "mock-family-c/fixture",
+    "fixture_only": true,
+    "input_usd_per_million": 1.0,
+    "output_usd_per_million": 2.0,
+    "supports_json_schema": true,
+    "max_context_tokens": 16384
+  },
+  {
+    "model_id": "mock-family-d/fixture",
+    "fixture_only": true,
+    "input_usd_per_million": 1.0,
+    "output_usd_per_million": 2.0,
+    "supports_json_schema": true,
+    "max_context_tokens": 16384
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "rows": 594,
+  "family_t_min_coverage": 0.097,
+  "conservative_mean_halfwidth_range": [
+    0.49590855703539644,
+    0.8589388166934753
+  ],
+  "confirmatory_precision_ready": false,
+  "source_sha256": {
+    "precision_gate.json": "d3175df11ed9903271bb4eda61b13c03c6e0eeecee18d6e0b68e0f67c16aef70",
+    "precision_diagnostics.csv": "d475ec59bdca5cc5b3d2cd8bf981a7d427c73c6cd784cd18fca7e23cca41b697"
+  },
+  "no_rerun": true,
+  "released_csv_sha256": "efa146b2b4773538eda2770c193ee016a4d643b1d87b78fc1aaa20c08414f287",
+  "release_serialization": "LF line endings; all parsed CSV records identical to original source"
+}

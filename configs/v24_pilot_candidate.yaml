@@ -1,0 +1,29 @@
+schema_version: pilot-config-2.4
+protocol_status: candidate_not_frozen
+study_kind: exposed_development_exploratory_pilot
+policy_approval: DECISION_REQUIRED
+authorized_openrouter_usd: 0
+public_tasks: tests/fixtures/v2_preflight_v23/public_tasks.json
+generation_plan: tests/fixtures/v24_pilot/generation_plan.json
+scoring_truth: tests/fixtures/v2_preflight_v23/private_truth.json
+families: tests/fixtures/v2_preflight_v23/families.json
+decisions: tests/fixtures/v2_preflight_v23/decisions.json
+mock_rules: tests/fixtures/v24_pilot/mock_rules.json
+precision_reference_config: configs/v23_preflight_candidate.yaml
+models: [mock-family-a/fixture, mock-family-b/fixture, mock-family-c/fixture, mock-family-d/fixture]
+variants: [base, challenge]
+source_repetitions: 2
+sample_size: 800
+sample_repetitions: 3
+sampling_seed: 6401017
+primary_sample_repetition: 0
+estimation:
+  folds: 3
+  estimator_seed: 6401
+  propensity_clip: 0.01
+  maximum_extreme_propensity_fraction: 0.2
+  bias_shifts: [-0.1, 0.0, 0.1]
+fixed_margin_thresholds: [0.0, 0.1, 0.25, 0.5]
+practical_zero_sensitivity: [0.0, 0.05, 0.1]
+assertion_target: 0.5
+matching_tolerance: 0.1

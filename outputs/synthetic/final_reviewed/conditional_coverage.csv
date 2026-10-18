@@ -1,0 +1,13 @@
+method,identified_world_intervals,intervals_covering_identified_truth,conditional_coverage,warning
+association_unadjusted,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+no_llm_evidence_set,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+preselected_Gemini_alias,4,4,1.0,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+google/gemini-3.5-flash-lite,4,4,1.0,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+openai/gpt-6-luna,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+meta-llama/llama-4-maverick,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+deepseek/deepseek-v4.1-flash,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+naive_strict_majority,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+robust_credible_alternatives,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+robust_supported_only,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+robust_permissive_sensitivity,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."
+strict_unmeasured_or_selection_stress,0,0,,"Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate."

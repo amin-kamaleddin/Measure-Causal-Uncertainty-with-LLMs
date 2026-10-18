@@ -1,0 +1,35 @@
+{
+  "provenance": {
+    "source_type": "offline_fixture",
+    "fixture_id": "dummy_explicit_abstention",
+    "requested_model_family": "dummy-family-d",
+    "prompt_variant": "base",
+    "prompt_sha256": "224130c0dc1124277867ffb40b6e1cf5c76fe2ede67168fa2426d301b610ae27",
+    "repetition_index": 0,
+    "timestamp": "2026-10-16T00:00:00+00:00",
+    "schema_version": "synthetic-graph-v2.0"
+  },
+  "response": {
+    "schema_version": "synthetic-graph-v2.0",
+    "treatment": "A",
+    "outcome": "Y",
+    "estimand": "population_total_effect",
+    "observed_nodes": [
+      "X1",
+      "X2",
+      "A",
+      "M",
+      "Y",
+      "C",
+      "observed"
+    ],
+    "edges": [],
+    "suggested_adjustment": [],
+    "rationale": "Invented deterministic fixture, not an LLM response or scientific evidence",
+    "contested_assumptions": [
+      "Unverified synthetic causal structure"
+    ],
+    "abstain": true,
+    "abstention_reason": "Dummy source declines to propose a graph"
+  }
+}

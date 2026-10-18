@@ -1,0 +1,5 @@
+model,planned_pairs,eligible_graph_pairs,identical_graph_sets,identical_graph_set_rate,equal_primary_causal_decisions,identical_response_status,warning
+google/gemini-3.5-flash-lite,8,8,7,0.875,8,7,Matching abstentions can conceal technical failures; graph stability uses valid nonabstaining pairs only.
+openai/gpt-6-luna,8,7,6,0.8571428571428571,8,8,Matching abstentions can conceal technical failures; graph stability uses valid nonabstaining pairs only.
+meta-llama/llama-4-maverick,8,4,2,0.5,8,7,Matching abstentions can conceal technical failures; graph stability uses valid nonabstaining pairs only.
+deepseek/deepseek-v4.1-flash,8,4,2,0.5,8,6,Matching abstentions can conceal technical failures; graph stability uses valid nonabstaining pairs only.

@@ -1,0 +1,49 @@
+# Offline candidate diagnostics only; no PI approval or live spending.
+schema_version: preflight-config-2.2
+protocol_status: candidate_not_frozen
+authorized_openrouter_usd: 0
+public_packets: tests/fixtures/v2_preflight/public_packets.json
+private_truth: tests/fixtures/v2_preflight/private_truth_fixture.json
+split_manifest: tests/fixtures/v2_preflight/split_fixture.json
+fake_pricing: tests/fixtures/v2_preflight/fake_pricing.json
+decisions: tests/fixtures/v2_preflight/decision_fixture.json
+models:
+- mock-family-a/fixture
+- mock-family-b/fixture
+- mock-family-c/fixture
+- mock-family-d/fixture
+variants:
+- base
+- challenge
+repetitions: 2
+max_retries: 1
+input_token_reservation: 8192
+output_token_reservation: 1024
+hypothetical_global_cap_usd: 25.0
+hypothetical_per_model_cap_usd: 8.0
+support_policies:
+- supported_only
+- retain_alternatives
+primary_support_policy: DECISION_REQUIRED
+candidate_assertion_target: 0.5
+candidate_matching_tolerance: 0.1
+candidate_practical_zero: 0.1
+precision:
+  card_counts:
+  - 20
+  - 60
+  - 120
+  family_counts:
+  - 5
+  - 10
+  assertion_rates:
+  - 0.25
+  - 0.5
+  - 0.75
+  assumed_conditional_error_a: 0.15
+  assumed_conditional_error_b: 0.1
+  family_icc: 0.2
+  probes_per_card: 12
+  repetitions: 300
+  simulation_seed: 9911
+  candidate_half_width: 0.05

@@ -1,0 +1,348 @@
+[
+  {
+    "schema_version": "private-truth-2.2",
+    "world_id": "world-a",
+    "public_card_hash": "99720bfed1a04e54df350f62a94a83d3b2ba13c356a2caa824c6a471349ac1ea",
+    "true_scm": {
+      "kind": "randomized",
+      "p_root": 0.5,
+      "p_y0": 0.2,
+      "p_y1": 0.8,
+      "p_a_u0": 0.2,
+      "p_a_u1": 0.8
+    },
+    "population_effect": 0.6,
+    "potential_outcomes": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "finite_sample_effect": 0.6,
+    "mechanism_family": "equivalence_context",
+    "narrative_style": "case_note",
+    "generator_seed": 31001,
+    "backdoor_failure": false,
+    "selection_warning": false,
+    "structural_zero_graph": false,
+    "certificate": {
+      "kind": "binary_pair",
+      "witness_world_ids": [
+        "world-a",
+        "world-b"
+      ],
+      "public_card_hash": "99720bfed1a04e54df350f62a94a83d3b2ba13c356a2caa824c6a471349ac1ea"
+    }
+  },
+  {
+    "schema_version": "private-truth-2.2",
+    "world_id": "world-b",
+    "public_card_hash": "99720bfed1a04e54df350f62a94a83d3b2ba13c356a2caa824c6a471349ac1ea",
+    "true_scm": {
+      "kind": "latent_copy",
+      "p_root": 0.5,
+      "p_y0": 0.2,
+      "p_y1": 0.8,
+      "p_a_u0": 0.2,
+      "p_a_u1": 0.8
+    },
+    "population_effect": 0.0,
+    "potential_outcomes": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "finite_sample_effect": 0.0,
+    "mechanism_family": "equivalence_context",
+    "narrative_style": "case_note",
+    "generator_seed": 31001,
+    "backdoor_failure": true,
+    "selection_warning": false,
+    "structural_zero_graph": true,
+    "certificate": {
+      "kind": "binary_pair",
+      "witness_world_ids": [
+        "world-a",
+        "world-b"
+      ],
+      "public_card_hash": "99720bfed1a04e54df350f62a94a83d3b2ba13c356a2caa824c6a471349ac1ea"
+    }
+  },
+  {
+    "schema_version": "private-truth-2.2",
+    "world_id": "world-c",
+    "public_card_hash": "13612bf5ad903cc3304575f46dde2a56cde377071e43473279445292dee93924",
+    "true_scm": {
+      "kind": "randomized",
+      "p_root": 0.5,
+      "p_y0": 0.2,
+      "p_y1": 0.8,
+      "p_a_u0": 0.2,
+      "p_a_u1": 0.8
+    },
+    "population_effect": 0.6,
+    "potential_outcomes": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        0.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "finite_sample_effect": 0.6,
+    "mechanism_family": "lottery_context",
+    "narrative_style": "design_sheet",
+    "generator_seed": 31002,
+    "backdoor_failure": false,
+    "selection_warning": false,
+    "structural_zero_graph": false,
+    "certificate": {
+      "kind": "randomized_complete",
+      "witness_world_ids": [],
+      "public_card_hash": "13612bf5ad903cc3304575f46dde2a56cde377071e43473279445292dee93924"
+    }
+  },
+  {
+    "schema_version": "private-truth-2.2",
+    "world_id": "world-d",
+    "public_card_hash": "6da187852ef21577b383564950ccdf98c839f62a0a52c0a3c396c457ae292152",
+    "true_scm": {
+      "kind": "randomized",
+      "p_root": 0.5,
+      "p_y0": 0.5,
+      "p_y1": 0.5,
+      "p_a_u0": 0.2,
+      "p_a_u1": 0.8
+    },
+    "population_effect": 0.0,
+    "potential_outcomes": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "finite_sample_effect": 0.0,
+    "mechanism_family": "isolation_context",
+    "narrative_style": "exclusion_memo",
+    "generator_seed": 41001,
+    "backdoor_failure": false,
+    "selection_warning": false,
+    "structural_zero_graph": true,
+    "certificate": {
+      "kind": "public_exclusion",
+      "witness_world_ids": [],
+      "public_card_hash": "6da187852ef21577b383564950ccdf98c839f62a0a52c0a3c396c457ae292152"
+    }
+  },
+  {
+    "schema_version": "private-truth-2.2",
+    "world_id": "world-e",
+    "public_card_hash": "4f768708e6fc591792e992bfeacaf83ed0a47f00b0f0b085ef87fea4d1fcf71d",
+    "true_scm": {
+      "kind": "latent_copy",
+      "p_root": 0.5,
+      "p_y0": 0.2,
+      "p_y1": 0.8,
+      "p_a_u0": 0.2,
+      "p_a_u1": 0.8
+    },
+    "population_effect": 0.0,
+    "potential_outcomes": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "finite_sample_effect": 0.0,
+    "mechanism_family": "unresolved_context",
+    "narrative_style": "inventory",
+    "generator_seed": 41002,
+    "backdoor_failure": true,
+    "selection_warning": false,
+    "structural_zero_graph": true,
+    "certificate": {
+      "kind": "none",
+      "witness_world_ids": [],
+      "public_card_hash": "4f768708e6fc591792e992bfeacaf83ed0a47f00b0f0b085ef87fea4d1fcf71d"
+    }
+  }
+]

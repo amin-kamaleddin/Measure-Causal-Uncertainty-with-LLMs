@@ -1,0 +1,41 @@
+{
+  "freeze_date": "2026-10-16",
+  "freeze_scope": "first internal non-oracle split, not external preregistration",
+  "first_heldout_run": "PENDING AT TIME OF FREEZE",
+  "previous_smoke_seeds_seen": [
+    105,
+    109,
+    1001,
+    1007
+  ],
+  "future_unseen_heldout_seeds": [
+    22001,
+    22002,
+    22003,
+    22004,
+    22005,
+    22006,
+    22007,
+    22008,
+    22009,
+    22010,
+    22011,
+    22012
+  ],
+  "file_sha256": {
+    "docs/protocol_v1_frozen.md": "f5fbd1ed5d09428574ec8b812cc3bca76aee9890e9a392e8649502247c1c5429",
+    "docs/nonoracle_benchmark_design.md": "76dc2a6e88bc50010768105478e7755765ea8b7ce74f5545de5a1ab958ed3507",
+    "configs/approved_protocol_v1.yaml": "f979e6acee3d170c72e6acecfeb3ae300e7af6fb5bde986376b97d3a52530c01",
+    "src/sharecausal/benchmark/blind.py": "3a520b974582b31cc799d1ec9a2fe88a530a9d5dc8ab71ee3c3c7e88b6ce4514",
+    "src/sharecausal/benchmark/challenge.py": "f460e1a3986ac1bd7762b367e3924d9d505d78d73c5de6f2defebf07191c57a3",
+    "src/sharecausal/benchmark/nonoracle.py": "5ae6ea05de147a4c4daee16151d47eac106090d1eebb1985eef24f07c6df418e",
+    "src/sharecausal/benchmark/ablations.py": "55915909130b79e0a6c91b5f79d943030417bdd0ab51a2a0fc2f36231369bf97",
+    "src/sharecausal/causal/graphs.py": "da1f1cdb0475d801c180ff0369a633921acbf1dde30eb91e67a399bdfc6ebcab",
+    "src/sharecausal/causal/identification.py": "ecdaebb9d84e422d1f1b8c0a5f3167170e9b85b7f7de609e22b6135b2f0d97fd",
+    "src/sharecausal/causal/robust_conclusions.py": "fe3df39e854976dc706bc692d4f82d83888afb25457a78586bb73182e31356da",
+    "src/sharecausal/causal/estimators.py": "90b16b705ebcd8ebaf94bf3508be1fc3f2ad97d512d55bc608fd56f4cc1c9a67",
+    "src/sharecausal/cli.py": "8e64febdbd67dca016ab056ebdd3ae684f691da02ad5b981fcf962fb96322b8c",
+    "src/sharecausal/reporting/plots.py": "fa98e81260fe4d4307687857167f8b9e8352e43d96e014fefe357b54adb4f2ff",
+    "tests/test_nonoracle.py": "636d667e0cd0ea2cd17211f79a951dc19de09f8d3c67ee0ca88156ad3291a284"
+  }
+}

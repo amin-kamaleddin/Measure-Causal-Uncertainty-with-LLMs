@@ -1,0 +1,55 @@
+# INTERNALLY LOCKED 2026-10-16 AFTER EXPLORATORY PILOTS.
+# Do not edit after commit. Amendments require new version and rationale.
+research_design:
+  primary_contribution: identification_aware_abstention_methods
+  share_application: descriptive_observational
+  primary_share_outcome: wave9_eurod_0_to_12
+  exposure: wave8_ac035d5_any_prior_year_club_participation
+  childhood_financial_status: wave7_cc733_exploratory_effect_modifier
+  wave8_eurod: temporally_ambiguous_sensitivity_only
+  no_unconditional_causal_share_effect: true
+privacy:
+  mode: local_only
+  openrouter_live_authorized: false
+  max_live_api_spend_usd: 0
+synthetic_evaluation:
+  source: independent_synthetic_scm_no_share_data
+  methods:
+    - unadjusted
+    - no_llm_evidence_graph
+    - naive_all_adjust
+    - fixture_A
+    - fixture_B
+    - fixture_C
+    - fixture_D
+    - naive_majority
+    - robust_screened
+    - robust_plus_unmeasured_U
+  proposal_sources: offline_fixed_fixtures_not_real_llms
+  seed_policy: disjoint_development_and_heldout_seeds
+  mechanisms:
+    - threshold_nonlinear
+    - proxy_hidden
+    - informative_dropout
+    - near_zero_heterogeneous
+    - overlap_collapse
+  development_seeds: [1101, 1102, 1103, 1104, 1105, 1106, 1107, 1108]
+  heldout_seeds: [22001, 22002, 22003, 22004, 22005, 22006, 22007, 22008, 22009, 22010, 22011, 22012]
+  sample_size: 800
+  bias_shift_radius: 0.25
+  false_sign_materiality_tolerance: 0.10
+  target_assertion_rate: 0.50
+  comparison_tolerance_in_heldout_assertion_rate: 0.10
+  fixed_margin_thresholds: [0.0, 0.1, 0.25, 0.5]
+  selection_policy: abstain_if_any_outcome_unobserved
+  sensitivity_unmeasured_U: separate_always_abstain_stress_test
+  primary_metric: false_sign_risk_given_assertion_at_development_calibrated_coverage
+  secondary_metrics:
+    - achieved_coverage
+    - assertions_in_nonidentified_ground_truth
+    - rmse_of_representative_point_estimator
+    - conditional_interval_coverage_on_identifiable_mechanisms
+    - graph_temporal_constraint_rejections
+  no_oracle_graph_support: true
+  missing_outcome_imputation: none
+  sample_split_note: exploratory_previous_scm_families_not_claimed_as_unseen_confirmatory

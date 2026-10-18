@@ -1,0 +1,5 @@
+seed: 20261015
+quick_seeds: [11, 29, 47, 67]
+full_seeds: 40
+sample_sizes: [700, 1500]
+scenarios: [measured, hidden, mediator, collider, weak_positivity, nonlinear, heterogeneity, selection]

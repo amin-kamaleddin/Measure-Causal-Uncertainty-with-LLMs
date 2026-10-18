@@ -1,0 +1,13 @@
+method,eligible_cards,directional_assertion,public_structural_zero,technical_response_failure,estimator_failure,association_only_control,framework_withheld,directional_assertion_rate,framework_withheld_rate,no_direction_rate
+always_abstain,24,0,0,0,0,0,24,0.0,1.0,1.0
+association_unadjusted,24,0,0,0,0,24,0,0.0,0.0,1.0
+naive_strict_majority,24,0,0,0,0,0,24,0.0,1.0,1.0
+no_llm_evidence_set,24,4,2,0,0,0,18,0.16666666666666666,0.75,0.8333333333333334
+robust_credible_alternatives,24,4,2,0,0,0,18,0.16666666666666666,0.75,0.8333333333333334
+robust_permissive_sensitivity,24,4,2,0,0,0,18,0.16666666666666666,0.75,0.8333333333333334
+robust_supported_only,24,4,2,0,2,0,16,0.16666666666666666,0.6666666666666666,0.8333333333333334
+single_preselected_source,24,6,2,0,0,0,16,0.25,0.6666666666666666,0.75
+source_a,24,6,2,0,0,0,16,0.25,0.6666666666666666,0.75
+source_b,24,5,2,0,0,0,17,0.20833333333333334,0.7083333333333334,0.7916666666666666
+source_c,24,6,0,8,0,0,10,0.25,0.4166666666666667,0.75
+source_d,24,5,2,11,0,0,6,0.20833333333333334,0.25,0.7916666666666666

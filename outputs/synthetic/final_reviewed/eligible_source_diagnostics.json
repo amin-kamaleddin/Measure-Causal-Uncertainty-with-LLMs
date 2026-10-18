@@ -1,0 +1,55 @@
+[
+  {
+    "model": "google/gemini-3.5-flash-lite",
+    "primary_tasks": 24,
+    "valid_parsed_primary": 24,
+    "failed_primary": 0,
+    "explicit_epistemic_abstentions": 0,
+    "eligible_method_graph_identification": {
+      "identified_by_baseline_backdoor": 14,
+      "not_identified_by_baseline_backdoor": 9,
+      "graph_conditional_structural_zero": 3,
+      "selection_unresolved": 4
+    }
+  },
+  {
+    "model": "openai/gpt-6-luna",
+    "primary_tasks": 24,
+    "valid_parsed_primary": 24,
+    "failed_primary": 0,
+    "explicit_epistemic_abstentions": 2,
+    "eligible_method_graph_identification": {
+      "identified_by_baseline_backdoor": 30,
+      "graph_conditional_structural_zero": 10,
+      "not_identified_by_baseline_backdoor": 8,
+      "not_admitted": 4,
+      "selection_unresolved": 4
+    }
+  },
+  {
+    "model": "meta-llama/llama-4-maverick",
+    "primary_tasks": 24,
+    "valid_parsed_primary": 16,
+    "failed_primary": 8,
+    "explicit_epistemic_abstentions": 0,
+    "eligible_method_graph_identification": {
+      "identified_by_baseline_backdoor": 19,
+      "not_identified_by_baseline_backdoor": 8,
+      "not_admitted": 2,
+      "selection_unresolved": 4
+    }
+  },
+  {
+    "model": "deepseek/deepseek-v4.1-flash",
+    "primary_tasks": 24,
+    "valid_parsed_primary": 13,
+    "failed_primary": 11,
+    "explicit_epistemic_abstentions": 0,
+    "eligible_method_graph_identification": {
+      "identified_by_baseline_backdoor": 15,
+      "not_admitted": 1,
+      "graph_conditional_structural_zero": 6,
+      "selection_unresolved": 4
+    }
+  }
+]

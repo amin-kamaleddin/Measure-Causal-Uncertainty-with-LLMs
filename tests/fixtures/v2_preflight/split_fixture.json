@@ -1,0 +1,38 @@
+[
+  {
+    "card_hash": "99720bfed1a04e54df350f62a94a83d3b2ba13c356a2caa824c6a471349ac1ea",
+    "split": "development",
+    "mechanism_family": "equivalence_context",
+    "narrative_style": "case_note",
+    "seeds": [
+      31001
+    ]
+  },
+  {
+    "card_hash": "13612bf5ad903cc3304575f46dde2a56cde377071e43473279445292dee93924",
+    "split": "development",
+    "mechanism_family": "lottery_context",
+    "narrative_style": "design_sheet",
+    "seeds": [
+      31002
+    ]
+  },
+  {
+    "card_hash": "6da187852ef21577b383564950ccdf98c839f62a0a52c0a3c396c457ae292152",
+    "split": "heldout",
+    "mechanism_family": "isolation_context",
+    "narrative_style": "exclusion_memo",
+    "seeds": [
+      41001
+    ]
+  },
+  {
+    "card_hash": "4f768708e6fc591792e992bfeacaf83ed0a47f00b0f0b085ef87fea4d1fcf71d",
+    "split": "heldout",
+    "mechanism_family": "unresolved_context",
+    "narrative_style": "inventory",
+    "seeds": [
+      41002
+    ]
+  }
+]

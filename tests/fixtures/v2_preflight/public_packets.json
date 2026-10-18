@@ -1,0 +1,290 @@
+[
+  {
+    "schema_version": "public-world-2.2",
+    "card_id": "card-f0d937fef7909755b69d8a4b4b44753888ea9f2cb63a9ee10b9590af6d62dfba",
+    "title": "Fictional apparatus: limited assignment record",
+    "variables": [
+      {
+        "name": "A",
+        "role": "treatment",
+        "time": 1,
+        "observed": true
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "time": 3,
+        "observed": true
+      },
+      {
+        "name": "U",
+        "role": "latent_hypothesis",
+        "time": 0,
+        "observed": false
+      }
+    ],
+    "estimand": {
+      "treatment": "A",
+      "outcome": "Y",
+      "contrast": "E[Y(do(A=1))-Y(do(A=0))]",
+      "intervention": "Set the binary apparatus switch to on versus off before the outcome is generated.",
+      "population": "All eligible fictional apparatus units; no conditioning on survival or follow-up.",
+      "observation_target": "Y_defined_for_all_eligible_units",
+      "consistency": "stipulated_no_interference_and_single_treatment_version",
+      "positivity": "both_interventions_possible_in_target"
+    },
+    "assignment_description": "The assignment log is unavailable; lottery and common-cause explanations remain possible.",
+    "assignment": "assignment_unknown",
+    "selection_description": "Every eligible unit has an outcome recorded.",
+    "selection": "complete_outcomes",
+    "structural_exclusion": false,
+    "evidence": [
+      {
+        "evidence_id": "ev-9c50c2f025bea37ebe4a8032bab115ff4136c868daff8070446f27b5cf35dec7",
+        "kind": "edge",
+        "source": "A",
+        "target": "Y",
+        "relation": "ambiguous",
+        "statement": "Fictional note: a switch effect remains possible but has not been established.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-16ca186a1789c1769530b69ee502cd69ad7d4ff6bb977f4c8462bfbe92b9caf4",
+        "kind": "edge",
+        "source": "U",
+        "target": "A",
+        "relation": "ambiguous",
+        "statement": "Fictional note: an earlier common cause of assignment remains possible.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-5186d19387953b62c73cdcc358b78a8fbaedb6291a745fa99ab2fba0986cd2a1",
+        "kind": "edge",
+        "source": "U",
+        "target": "Y",
+        "relation": "ambiguous",
+        "statement": "Fictional note: the same earlier factor could affect the outcome.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-e7f1923cc36b030ab5b5ff8edcd7ce56ff2a8940da253050cb70bc9fce23776f",
+        "kind": "general",
+        "source": "",
+        "target": "",
+        "relation": "unrelated",
+        "statement": "Fictional maintenance note: the exterior was painted.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      }
+    ]
+  },
+  {
+    "schema_version": "public-world-2.2",
+    "card_id": "card-c516e0ee64cac95f85243405d64ffb65ef3de5ab7b9111755acbd85de901115d",
+    "title": "Fictional apparatus: documented lottery",
+    "variables": [
+      {
+        "name": "A",
+        "role": "treatment",
+        "time": 1,
+        "observed": true
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "time": 3,
+        "observed": true
+      },
+      {
+        "name": "U",
+        "role": "latent_hypothesis",
+        "time": 0,
+        "observed": false
+      }
+    ],
+    "estimand": {
+      "treatment": "A",
+      "outcome": "Y",
+      "contrast": "E[Y(do(A=1))-Y(do(A=0))]",
+      "intervention": "Set the binary apparatus switch to on versus off before the outcome is generated.",
+      "population": "All eligible fictional apparatus units; no conditioning on survival or follow-up.",
+      "observation_target": "Y_defined_for_all_eligible_units",
+      "consistency": "stipulated_no_interference_and_single_treatment_version",
+      "positivity": "both_interventions_possible_in_target"
+    },
+    "assignment_description": "A documented independent lottery sets the switch.",
+    "assignment": "randomized_documented",
+    "selection_description": "Every eligible unit has an outcome recorded.",
+    "selection": "complete_outcomes",
+    "structural_exclusion": false,
+    "evidence": [
+      {
+        "evidence_id": "ev-3df5af130cdf02d056f6c85b008f42532101ec91cf874d7b04c541480068bf26",
+        "kind": "edge",
+        "source": "A",
+        "target": "Y",
+        "relation": "supported",
+        "statement": "Fictional design note: a direct switch-to-outcome connection exists.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-a3bb58280ea2631495971a1ac7d72a7a7290ec90353054648e3124db32c2077a",
+        "kind": "assignment",
+        "source": "A",
+        "target": "",
+        "relation": "supported",
+        "statement": "Fictional assignment note stipulates an independent randomized switch.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      }
+    ]
+  },
+  {
+    "schema_version": "public-world-2.2",
+    "card_id": "card-a022bae9663726ccfc900db9db0f792e1267448878c1f1afd2cecc03e8d4e365",
+    "title": "Fictional apparatus: isolated switch",
+    "variables": [
+      {
+        "name": "A",
+        "role": "treatment",
+        "time": 1,
+        "observed": true
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "time": 3,
+        "observed": true
+      },
+      {
+        "name": "U",
+        "role": "latent_hypothesis",
+        "time": 0,
+        "observed": false
+      }
+    ],
+    "estimand": {
+      "treatment": "A",
+      "outcome": "Y",
+      "contrast": "E[Y(do(A=1))-Y(do(A=0))]",
+      "intervention": "Set the binary apparatus switch to on versus off before the outcome is generated.",
+      "population": "All eligible fictional apparatus units; no conditioning on survival or follow-up.",
+      "observation_target": "Y_defined_for_all_eligible_units",
+      "consistency": "stipulated_no_interference_and_single_treatment_version",
+      "positivity": "both_interventions_possible_in_target"
+    },
+    "assignment_description": "The assignment log is unavailable; lottery and common-cause explanations remain possible.",
+    "assignment": "assignment_unknown",
+    "selection_description": "Every eligible unit has an outcome recorded.",
+    "selection": "complete_outcomes",
+    "structural_exclusion": true,
+    "evidence": [
+      {
+        "evidence_id": "ev-adab17adc3a2982feeadde8182ce5cdf5a07e1319dd00c7155448113795d1141",
+        "kind": "edge",
+        "source": "A",
+        "target": "Y",
+        "relation": "contradicted",
+        "statement": "Fictional design note excludes a direct switch-to-outcome connection.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-c82d552f537c91c2680e2753ad3101846748e27430d3262163ff3c71fffc776a",
+        "kind": "exclusion",
+        "source": "A",
+        "target": "Y",
+        "relation": "supported",
+        "statement": "Fictional structural stipulation: the switch has no directed causal route to the outcome, including indirect routes.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      }
+    ]
+  },
+  {
+    "schema_version": "public-world-2.2",
+    "card_id": "card-0a5223f91dfdfa489bb74d1cda2c8d2a47095dc6b4d1856a6152fdd3cc61acbd",
+    "title": "Fictional apparatus: unresolved observation process",
+    "variables": [
+      {
+        "name": "A",
+        "role": "treatment",
+        "time": 1,
+        "observed": true
+      },
+      {
+        "name": "Y",
+        "role": "outcome",
+        "time": 3,
+        "observed": true
+      },
+      {
+        "name": "U",
+        "role": "latent_hypothesis",
+        "time": 0,
+        "observed": false
+      }
+    ],
+    "estimand": {
+      "treatment": "A",
+      "outcome": "Y",
+      "contrast": "E[Y(do(A=1))-Y(do(A=0))]",
+      "intervention": "Set the binary apparatus switch to on versus off before the outcome is generated.",
+      "population": "All eligible fictional apparatus units; no conditioning on survival or follow-up.",
+      "observation_target": "Y_defined_for_all_eligible_units",
+      "consistency": "stipulated_no_interference_and_single_treatment_version",
+      "positivity": "both_interventions_possible_in_target"
+    },
+    "assignment_description": "The assignment log is unavailable; lottery and common-cause explanations remain possible.",
+    "assignment": "assignment_unknown",
+    "selection_description": "The available notes do not establish how follow-up records were collected.",
+    "selection": "selection_unknown",
+    "structural_exclusion": false,
+    "evidence": [
+      {
+        "evidence_id": "ev-9c50c2f025bea37ebe4a8032bab115ff4136c868daff8070446f27b5cf35dec7",
+        "kind": "edge",
+        "source": "A",
+        "target": "Y",
+        "relation": "ambiguous",
+        "statement": "Fictional note: a switch effect remains possible but has not been established.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-16ca186a1789c1769530b69ee502cd69ad7d4ff6bb977f4c8462bfbe92b9caf4",
+        "kind": "edge",
+        "source": "U",
+        "target": "A",
+        "relation": "ambiguous",
+        "statement": "Fictional note: an earlier common cause of assignment remains possible.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-5186d19387953b62c73cdcc358b78a8fbaedb6291a745fa99ab2fba0986cd2a1",
+        "kind": "edge",
+        "source": "U",
+        "target": "Y",
+        "relation": "ambiguous",
+        "statement": "Fictional note: the same earlier factor could affect the outcome.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      },
+      {
+        "evidence_id": "ev-e7f1923cc36b030ab5b5ff8edcd7ce56ff2a8940da253050cb70bc9fce23776f",
+        "kind": "general",
+        "source": "",
+        "target": "",
+        "relation": "unrelated",
+        "statement": "Fictional maintenance note: the exterior was painted.",
+        "reliability": "stipulated_synthetic",
+        "version": "fictional-evidence-1"
+      }
+    ]
+  }
+]

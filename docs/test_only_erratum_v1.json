@@ -1,0 +1,11 @@
+{
+  "kind": "test-only portability correction",
+  "approved_protocol_version": "v1 unchanged",
+  "amendment_version": "test compatibility v1.0.1",
+  "changed_frozen_file": "tests/test_nonoracle.py",
+  "frozen_sha256": "636d667e0cd0ea2cd17211f79a951dc19de09f8d3c67ee0ca88156ad3291a284",
+  "patched_sha256": "6ac6a7c0f6cbb3359fed5a26260e53891f458d4bdebf38b8ddcfebfcace7c11d",
+  "causal_analysis_code_changed": false,
+  "prior_benchmark_results_recomputed": false,
+  "description": "Numerical equality now tolerates roundoff only while checking causal decisions exactly; the privacy test excludes ignored virtual-environment dependency fixtures from publication candidates."
+}

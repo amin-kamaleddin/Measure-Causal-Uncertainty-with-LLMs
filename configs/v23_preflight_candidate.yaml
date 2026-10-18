@@ -1,0 +1,40 @@
+# All scientific options below are unapproved candidate diagnostics.
+schema_version: preflight-config-2.3
+protocol_status: candidate_not_frozen
+authorized_openrouter_usd: 0
+public_tasks: tests/fixtures/v2_preflight_v23/public_tasks.json
+private_truth: tests/fixtures/v2_preflight_v23/private_truth.json
+families: tests/fixtures/v2_preflight_v23/families.json
+decisions: tests/fixtures/v2_preflight_v23/decisions.json
+fake_pricing: tests/fixtures/v2_preflight/fake_pricing.json
+candidate_primary_policy: credible_alternatives
+policy_approval: DECISION_REQUIRED
+models: [mock-family-a/fixture, mock-family-b/fixture, mock-family-c/fixture, mock-family-d/fixture]
+variants: [base, challenge]
+repetitions: 2
+max_retries: 1
+input_token_reservation: 8192
+output_token_reservation: 2048
+hypothetical_global_cap_usd: 25.0
+hypothetical_per_model_cap_usd: 8.0
+planning_card_counts: [20, 60, 120]
+assertion_target: 0.5
+matching_tolerance: 0.1
+practical_zero_sensitivity: [0.0, 0.05, 0.1]
+fixed_margin_thresholds: [0.0, 0.25, 0.5, 0.75, 1.0]
+precision:
+  card_counts: [60, 120, 180]
+  family_counts: [10, 20, 30]
+  differences_per_card: [0.025, 0.05]
+  conditional_error_a: [0.2, 0.12]
+  latent_family_correlations: [0.0, 0.6]
+  source_b_dropout: [0.0, 0.35]
+  couplings: [shared_uniform, conditionally_independent]
+  repetitions: 1000
+  seed: 6241017
+  nominal_coverage: 0.95
+  minimum_coverage: 0.93
+  maximum_MC_half_width: 0.02
+  precision_half_width: 0.05
+  assertion_rate: 0.5
+  rare_event_stress: true

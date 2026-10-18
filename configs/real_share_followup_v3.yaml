@@ -1,0 +1,12 @@
+version: real-share-followup-v3-exploratory
+processing_mode: local_only
+seed: 20261015
+folds: 3
+propensity_clip: 0.01
+country_min_n: 200
+country_min_arm: 20
+subgroup_min_n: 100
+subgroup_min_arm: 20
+response_probability_floor: 0.05
+mnar_shifts: [-2, -1, 0, 1, 2]
+confounding_shifts: [-1, 0, 1]

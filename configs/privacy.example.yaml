@@ -1,0 +1,4 @@
+processing_mode: local_only
+allowed_external_data_classes: [public_literature, independent_synthetic]
+allow_raw_share_export: false
+allowed_providers: []

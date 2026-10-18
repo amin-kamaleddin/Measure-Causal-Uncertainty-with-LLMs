@@ -1,0 +1,178 @@
+[
+  {
+    "id": "primary_metric",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve the candidate union of three unjustified-assertion components per public card.",
+    "options": [
+      "Union with component reporting",
+      "Hierarchical endpoints"
+    ],
+    "recommended": "Union with component reporting",
+    "evidence": "Review B2; uncertified assertions are reported with lower/upper rates."
+  },
+  {
+    "id": "practical_zero",
+    "status": "DECISION_REQUIRED",
+    "question": "Choose a practical-zero scale separately from structural exclusion.",
+    "options": [
+      "Candidate 0.10 units",
+      "World-specific thresholds"
+    ],
+    "recommended": "Candidate 0.10 units",
+    "evidence": "Diagnostic threshold only; no clinical scale or superiority claim."
+  },
+  {
+    "id": "coverage",
+    "status": "DECISION_REQUIRED",
+    "question": "Choose an achievable assertion target and tolerance.",
+    "options": [
+      "Candidate 0.50 plus/minus 0.10",
+      "Development-feasible alternative"
+    ],
+    "recommended": "Candidate 0.50 plus/minus 0.10",
+    "evidence": "Graph-only preflight has no outcome fits; actual feasibility unestablished."
+  },
+  {
+    "id": "meaningful_difference",
+    "status": "DECISION_REQUIRED",
+    "question": "Choose the smallest meaningful improvement per eligible card.",
+    "options": [
+      "Candidate 0.025",
+      "Candidate 0.05"
+    ],
+    "recommended": "Candidate 0.025",
+    "evidence": "Precision simulation assumptions, not an approved effect size."
+  },
+  {
+    "id": "independent_units",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve independent card/family counts.",
+    "options": [
+      "Inspect grid 20/60/120 cards",
+      "Specify a larger grid"
+    ],
+    "recommended": "Inspect grid 20/60/120 cards",
+    "evidence": "Seed draws and repeated prompts are nested, not independent tasks."
+  },
+  {
+    "id": "support_policy",
+    "status": "DECISION_REQUIRED",
+    "question": "Choose supported-only versus uncertainty alternatives.",
+    "options": [
+      "Retain alternatives",
+      "Supported-only primary"
+    ],
+    "recommended": "Retain alternatives",
+    "evidence": "Both candidate policies are executed; neither is selected using scores."
+  },
+  {
+    "id": "reviewers",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve available blinded adjudication resources.",
+    "options": [
+      "Rule-based primary with human sensitivity",
+      "Two independent reviewers"
+    ],
+    "recommended": "Rule-based primary with human sensitivity",
+    "evidence": "No reviewers have been recruited or adjudication claimed."
+  },
+  {
+    "id": "public_authorship",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve independent packet authorship and confidentiality.",
+    "options": [
+      "Separate author/generator/scorer roles",
+      "Disclosed single-team exploratory study"
+    ],
+    "recommended": "Separate author/generator/scorer roles",
+    "evidence": "Fixture labels do not prove independent mechanism design."
+  },
+  {
+    "id": "sensitivity",
+    "status": "DECISION_REQUIRED",
+    "question": "Choose scientific sensitivity scenarios.",
+    "options": [
+      "Explicit arbitrary stress grid",
+      "Externally justified bias bounds"
+    ],
+    "recommended": "Explicit arbitrary stress grid",
+    "evidence": "No calibrated hidden-confounding bounds are implemented."
+  },
+  {
+    "id": "models",
+    "status": "DECISION_REQUIRED",
+    "question": "Select real model families only in a separately authorized future step.",
+    "options": [
+      "Keep mock-only",
+      "Review future provider selection"
+    ],
+    "recommended": "Keep mock-only",
+    "evidence": "Prices and capability fixtures are fictional, no discovery allowed."
+  },
+  {
+    "id": "spending",
+    "status": "DECISION_REQUIRED",
+    "question": "Any future spending requires separate authorization.",
+    "options": [
+      "Keep USD 0",
+      "Consider a separately approved cap"
+    ],
+    "recommended": "Keep USD 0",
+    "evidence": "The hypothetical cost cap is not permission to spend."
+  },
+  {
+    "id": "environment",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve a reproducible lock and confirmatory environment.",
+    "options": [
+      "Python 3.13 lock plus compatibility job",
+      "Document current 3.15 exploratory stack"
+    ],
+    "recommended": "Python 3.13 lock plus compatibility job",
+    "evidence": "No new CI pass or dependency lock is claimed."
+  },
+  {
+    "id": "practical_null_metric",
+    "status": "DECISION_REQUIRED",
+    "question": "Decide treatment of identified practical-null directional claims.",
+    "options": [
+      "Additional reported diagnostic",
+      "Include as another primary component"
+    ],
+    "recommended": "Additional reported diagnostic",
+    "evidence": "Current candidate primary has exactly the three review-requested components."
+  },
+  {
+    "id": "split_seal",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve independent family/style classification and external sealing.",
+    "options": [
+      "Independent review and sealed holdout",
+      "Local exploratory manifests only"
+    ],
+    "recommended": "Independent review and sealed holdout",
+    "evidence": "Content hashes alone do not establish institutional blinding."
+  },
+  {
+    "id": "voting",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve the explicit candidate ballot rules.",
+    "options": [
+      "All planned models; first base repetition; multiple graphs abstain",
+      "Review graph-set ballot alternatives"
+    ],
+    "recommended": "All planned models; first base repetition; multiple graphs abstain",
+    "evidence": "No post-truth choice, cycle repair or best-model selection."
+  },
+  {
+    "id": "observation_target",
+    "status": "DECISION_REQUIRED",
+    "question": "Approve the world-level observation/selection target.",
+    "options": [
+      "Y defined for all eligible units",
+      "Separate survivor estimand design"
+    ],
+    "recommended": "Y defined for all eligible units",
+    "evidence": "No death-truncated outcome effect is automatically identified."
+  }
+]

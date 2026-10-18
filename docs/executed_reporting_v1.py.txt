@@ -1,0 +1,211 @@
+"""Post-seal reports only. Never calls providers or changes predictions."""
+from collections import Counter
+import csv
+import json
+from pathlib import Path
+from sharecausal.preflight_v23.sealing import digest,verify
+from sharecausal.preflight_v23.packets import PublicTask,task_hash
+from sharecausal.preflight_v23.admission import audit,support
+from sharecausal.pilot_v24.graphs import identify_graph
+from .public import MODELS
+
+
+def csv_file(path,rows):
+    if path.exists(): return
+    keys=list(dict.fromkeys(k for r in rows for k in r))
+    with path.open('x',newline='') as stream:
+        writer=csv.DictWriter(stream,fieldnames=keys);writer.writeheader()
+        for r in rows:
+            writer.writerow({k:json.dumps(v,sort_keys=True) if isinstance(v,(dict,list)) else v for k,v in r.items()})
+
+
+def json_file(path,data):
+    if not path.exists():
+        with path.open('x') as stream: json.dump(data,stream,indent=2,allow_nan=False)
+
+
+def method_name(name):
+    if name.startswith('source_') and name[-1] in 'abcd': return MODELS['abcd'.index(name[-1])]
+    if name=='single_preselected_source': return 'preselected_Gemini_alias'
+    if name=='always_abstain': return 'strict_unmeasured_or_selection_stress'
+    return name
+
+
+def report(out):
+    sealed=(out/'prediction_seal_sha256.txt').read_text().strip()
+    verify(out,json.loads((out/'prediction_seal.json').read_text()),'prediction_seal.json',sealed)
+    result=json.loads((out/'scored_results.json').read_text())
+    batch=json.loads((out/'prediction_batch.json').read_text())
+    requests=[json.loads(x) for x in (out/'request_manifest.jsonl').read_text().splitlines()]
+    collection=json.loads((out/'collection_summary.json').read_text())
+    tasks={task_hash(t):t for t in [PublicTask.model_validate(x) for x in json.loads((out/'public_tasks.json').read_text())]}
+    summaries=[]
+    for summary in result['main_summary']:
+        r=dict(summary); original=r['method']; r['method']=method_name(original)
+        probes=[x for x in result['world_estimation_diagnostics'] if x['method']==original]
+        # Each card counts once, including practical-null assertions. Compatible
+        # worlds are not independent replicates and never scored for hidden edge guessing.
+        wrong={x['task_hash'] for x in probes if x['unconditional_decision']!='abstain' and
+               (abs(x['truth_population_effect'])<=.1 or
+                ((x['truth_population_effect']>0)!=(x['unconditional_decision']=='positive')))}
+        card_rows=[x for x in result['per_card'] if x['method']==original]
+        unjustified=wrong|{x['task_hash'] for x in card_rows if x['known_unjustified']}
+        r.update(wrong_or_practical_null_assertion_cards=len(wrong),
+            wrong_or_practical_null_risk=len(wrong)/r['assertions'] if r['assertions'] else None,
+            composite_unjustified_assertion_cards=len(unjustified),
+            composite_risk=len(unjustified)/r['assertions'] if r['assertions'] else None,
+            matched_risk_comparison='infeasible_without_adequate_matched_assertions_and_independent_families',
+            structural_zero_cards=sum(p['methods'][original].get('structural_effect')==0 for p in batch),
+            graph_conditional_direction_cards=sum(p['methods'][original].get('conditional_decision') in ('positive','negative') for p in batch))
+        summaries.append(r)
+    csv_file(out/'method_results.csv',summaries)
+    csv_file(out/'per_card_results.csv',[dict(r,method=method_name(r['method'])) for r in result['per_card']])
+    csv_file(out/'risk_abstention.csv',[dict(r,method=method_name(r['method'])) for r in result['risk_assertion_curves']])
+    csv_file(out/'paired_family_contrasts.csv',[dict(r,method=method_name(r['method'])) for r in result['paired_family_differences']])
+    csv_file(out/'estimation_diagnostics.csv',[dict(r,method=method_name(r['method'])) for r in result['world_estimation_diagnostics']])
+    csv_file(out/'identification_certificates.csv',[dict(world_id=k,**v) for k,v in result['certifications'].items()])
+    graph_rows=[]; edge_rows=[]; costs=[]; model_rows=[]
+    for item in requests:
+        model=item['model']; h=item['task_sha256']; record=None
+        if item.get('record_file'): record=json.loads((out/item['record_file']).read_text())
+        usage=record['usage'] if record else {}
+        costs.append(dict(model=model,variant=item["variant"],task_sha256=h,status=item['status'],
+            transport_outcome=record['transport_outcome'] if record else None,
+            actual_post=bool(record),response_id=record['provider_response_id'] if record else None,
+            provider=record['provider'] if record else None,cost_usd=record['cost_usd'] if record else None,
+            reserved_usd=record['reserved_usd'] if record else None,
+            prompt_tokens=usage.get('prompt_tokens'),completion_tokens=usage.get('completion_tokens'),
+            reasoning_tokens=(usage.get('completion_tokens_details') or {}).get('reasoning_tokens'),
+            total_tokens=usage.get('total_tokens'),latency_seconds=record['latency_seconds'] if record else None))
+    presealed=json.loads((out/'graph_audit_batch.json').read_text())
+    graph_rows=presealed['graphs'];edge_rows=presealed['edges']
+    for model in MODELS:
+        rows=[x for x in costs if x['model']==model]
+        gs=[x for x in graph_rows if x['model']==model]
+        states=Counter(x['status'] for x in rows)
+        parsed_status=Counter(p['source_audit'][f'mock-family-{"abcd"[MODELS.index(model)]}/fixture']['response_status'] for p in batch)
+        source=next(r for r in summaries if r['method']==model)
+        model_rows.append(dict(model=model,planned_primary=24,planned_counterargument=8,actual_posts=sum(x['actual_post'] for x in rows),
+            provider_schema_responses=states.get('response',0),transport_schema_status_counts=dict(states),
+            graph_parser_status_counts=dict(parsed_status),
+            admitted_hypotheses=sum(g['admitted'] for g in gs),
+            constraint_or_evidence_rejections=sum(g.get('format_valid',False) and not g['admitted'] and
+                not g.get('explicit_epistemic_abstention',False) for g in gs),
+            explicit_abstention_hypotheses=sum(g.get('explicit_epistemic_abstention',False) for g in gs),
+            cost_usd=sum(x['cost_usd'] or 0 for x in rows),
+            prompt_tokens=sum(x['prompt_tokens'] or 0 for x in rows),
+            completion_tokens=sum(x['completion_tokens'] or 0 for x in rows),
+            assertions=source['assertions'],wrong_or_practical_null=source['wrong_or_practical_null_assertion_cards']))
+    csv_file(out/'graph_admissions.csv',graph_rows); csv_file(out/'edge_claim_audit.csv',edge_rows)
+    csv_file(out/'usage_costs.csv',costs); csv_file(out/'model_results.csv',model_rows)
+    json_file(out/'scoring_manifest.json',dict(version='synthetic-live-1',exploratory=True,candidate_not_frozen=True,
+        prediction_seal_sha256=sealed,prediction_batch_sha256=digest(out/'prediction_batch.json'),
+        scorer_receipt=json.loads((out/'scorer_receipt.json').read_text()),
+        scoring_output_sha256=digest(out/'scored_results.json'),
+        primary_unit='24_public_cards_26_nested_worlds_12_declared_families_not_independently_reviewed',
+        practical_zero=.1,subgroups='none',truth_opened_only_after_full_batch_seal=True))
+    report_path=out/'pilot_report.md'
+    if not report_path.exists():
+        lines=['# Final real-provider synthetic exploratory expansion','','candidate_not_frozen; exploratory; no superiority claim.',
+            '',f'24 public cards; {result["declared_families"]} declared groups; 26 nested compatible-world probes; n=800 per card.',
+            f'Planned 96 primary + 32 counterargument calls; actual POST records {collection["actual_posts_total"]}; no automatic paid retries.',
+            f'Reported provider cost USD {collection["cost_usd"]:.9f}; unknown-cost records {collection["unresolved_costs"]}.',
+            'Software ceiling USD 25 (configured ceiling in design commitment); no API-key-side cap is claimed.',
+            '','| Method | Assertions / 24 | Wrong/practical-null | Composite unjustified | Structural-zero cards |',
+            '| --- | ---: | ---: | ---: | ---: |']
+        lines += [f'| {r["method"]} | {r["assertions"]} | {r["wrong_or_practical_null_assertion_cards"]} | {r["composite_unjustified_assertion_cards"]} | {r["structural_zero_cards"]} |' for r in summaries]
+        lines += ['','Provider outcomes:', '']
+        lines += [f'- {r["model"]}: {r["actual_posts"]}/32 POSTs, statuses {r["transport_schema_status_counts"]}; parsed {r["graph_parser_status_counts"]}; USD {r["cost_usd"]:.9f}.' for r in model_rows]
+        lines += ['','Identification certificates: '+str(dict(Counter(v['status'] for v in result['certifications'].values()))),
+            '','Decisions and full graph audits were sealed before scorer truth access. Local hashes are not independent registration.',
+            'The equivalent pair has one prompt/card and two exactly equal observed laws with distinct intervention effects; exact hidden-graph recovery is not scored.',
+            'The single-source alias was Gemini, fixed before requests. Source slots in the reused engine are internal aliases for real, typed provider receipts; they are not mock responses.',
+            'Naive voting needs more than two of four planned single-graph ballots; missing, invalid, multi-graph or abstaining sources do not reduce the denominator.',
+            '','Limitations:',
+            '- Single-team authored cards reuse binary mechanism classes. No independent authorship or external heldout-family validation. Eight hash-selected counterargument repeats measure stability.',
+            '- Conservative public randomization/complete-recording gate dominates observational assertions. Backdoor failure is only a restricted identification failure.',
+            '- Evidence support is a locked author-stipulated rule, without independent human adjudication. No data-driven graph selection.',
+            '- Practical-null threshold .10 and envelope shifts ±.10 are exploratory conventions. Normal sampling intervals and graph envelopes have no structural coverage guarantee.',
+            '- No confirmatory matched-risk comparison is supported by this small pilot; zero-assertion risks are undefined. Curves and paired family summaries are descriptive.',
+            '- Prior precision failure remains: family-t minimum simulated coverage .097; conservative mean half-width .496–.859. No rerun or repair of those diagnostics is claimed.',
+            '- Reasoning low is requested only where advertised, temperature zero only where supported; GPT-6 Luna receives no temperature. DeepSeek output cap is 8192; other models use 4096 tokens. Prior technical failures informed this prospective change. Effective settings are in each receipt.',
+            '- Zero SHARE respondent records or derived SHARE statistics enter prompts. All generated artifacts and transcripts remain local outside the Git repository.']
+        report_path.write_text('\n'.join(lines)+'\n')
+    status=out/'RUN_STATUS.md'
+    if not status.exists(): status.write_text('Step 7 executed; exploratory; candidate_not_frozen.\nSee pilot_report.md, collection_summary.json, commands_and_exit_codes.json and scoring_manifest.json.\n')
+    figures(out,summaries,result['risk_assertion_curves'])
+    json_file(out/'artifact_manifest.json',{str(p.relative_to(out)):digest(p) for p in sorted(out.rglob('*'))
+        if p.is_file() and not p.name.endswith('.pending') and p.name not in {
+            'artifact_manifest.json','commands_and_exit_codes.json'}})
+
+
+def figures(out,summaries,curves):
+    if (out/'assertion_rates.png').exists(): return
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    shown=[r for r in summaries if r['method'] not in ('association_unadjusted','preselected_Gemini_alias')]
+    labels=[r['method'].replace('google/','').replace('openai/','').replace('meta-llama/','').replace('deepseek/','') for r in shown]
+    fig,ax=plt.subplots(figsize=(10,6));ax.barh(labels,[r['assertion_rate'] for r in shown])
+    ax.set_xlim(0,1);ax.set_xlabel('Directional assertions / 24 eligible cards');ax.invert_yaxis()
+    ax.set_title('Exploratory real-provider pilot: assertion cost')
+    fig.tight_layout();fig.savefig(out/'assertion_rates.png',dpi=180);plt.close(fig)
+    fig,ax=plt.subplots(figsize=(8,5))
+    for method in ('no_llm_evidence_set','naive_strict_majority','robust_credible_alternatives'):
+        rows=[r for r in curves if r['method']==method and r['practical_zero']==.1 and r['assertions']]
+        ax.plot([r['assertion_rate'] for r in rows],[r['unjustified_risk_among_assertions_lower'] for r in rows],'o-',label=method)
+    ax.set(xlim=(0,1),ylim=(-.02,1),xlabel='Assertion rate',ylabel='Known unjustified risk among assertions',
+           title='Fixed margin curves; undefined risk at zero assertions omitted')
+    ax.legend(fontsize=8);fig.tight_layout();fig.savefig(out/'risk_assertion.png',dpi=180);plt.close(fig)
+
+
+def final_diagnostics(out):
+    """Post-seal stability and eligible-source diagnostics; no new decisions."""
+    from .public import SLOTS
+    from sharecausal.pilot_v24.capture import parse_wire
+    primary={p['public_task_hash']:p for p in json.loads((out/'prediction_batch.json').read_text())}
+    repeat={p['public_task_hash']:p for p in json.loads((out/'stability_prediction_batch.json').read_text())}
+    result=json.loads((out/'scored_results.json').read_text())
+    records={}
+    for p in (out/'provider_responses_private').glob('*.json'):
+        if p.name.endswith(('.raw.json','.inflight.json')): continue
+        r=json.loads(p.read_text()); records[r['task_sha256'],r['model_requested'],r['variant']]=r
+    stability=[]; eligible=[]
+    for slot,model in zip(SLOTS,MODELS):
+        valid_pairs=0; equal=0; decision_equal=0; status_equal=0
+        for h,alt in repeat.items():
+            base=primary[h]
+            status_equal+=base['source_audit'][slot]['response_status']==alt['source_audit'][slot]['response_status']
+            decision_equal+=base['methods']['source_'+'abcd'[MODELS.index(model)]]['decision']==alt['methods']['source_'+'abcd'[MODELS.index(model)]]['decision']
+            r1=records.get((h,model,'base')); r2=records.get((h,model,'counterargument'))
+            valid=lambda p:p['source_audit'][slot]['response_status'] in ('graph_response','multiple_graphs')
+            if valid(base) and valid(alt) and r1 and r2:
+                valid_pairs+=1
+                def signature(r):
+                    return sorted((sorted((e['source'],e['target']) for e in p['graph']['edges']), sorted(p['graph']['adjustment']),p['structural_zero_claim']) for p in json.loads(r['proposals_wire']))
+                equal+=signature(r1)==signature(r2)
+        stability.append(dict(model=model,planned_pairs=8,eligible_graph_pairs=valid_pairs,
+            identical_graph_sets=equal,identical_graph_set_rate=equal/valid_pairs if valid_pairs else None,
+            equal_primary_causal_decisions=decision_equal,identical_response_status=status_equal,
+            warning='Matching abstentions can conceal technical failures; graph stability uses valid nonabstaining pairs only.'))
+        counts=Counter(); failed=0; explicit=0
+        for h,p in primary.items():
+            status=p['source_audit'][slot]['response_status']
+            failed+=status not in ('graph_response','multiple_graphs','source_abstained')
+            explicit+=status=='source_abstained'
+            graphs=p['methods']['source_'+'abcd'[MODELS.index(model)]].get('graphs',[])
+            for graph in graphs: counts[graph.get('identification',{}).get('status','not_identified_or_not_admitted')]+=1
+        eligible.append(dict(model=model,primary_tasks=24,valid_parsed_primary=24-failed,
+            failed_primary=failed,explicit_epistemic_abstentions=explicit,eligible_method_graph_identification=dict(counts)))
+    coverage=[]
+    for m in result['main_summary']:
+        probes=[p for p in result['world_estimation_diagnostics'] if p['method']==m['method']]
+        defined=[p['interval_covers_identified_truth_ONLY'] for p in probes if p['interval_covers_identified_truth_ONLY'] is not None]
+        coverage.append(dict(method=method_name(m['method']),identified_world_intervals=len(defined),
+            intervals_covering_identified_truth=sum(defined),conditional_coverage=sum(defined)/len(defined) if defined else None,
+            warning='Nested probes, one sample/card; not a calibrated structural or repeated-sampling coverage estimate.'))
+    json_file(out/'prompt_stability.json',stability)
+    json_file(out/'eligible_source_diagnostics.json',eligible)
+    json_file(out/'conditional_coverage.json',coverage)
+    csv_file(out/'prompt_stability.csv',stability)
+    csv_file(out/'conditional_coverage.csv',coverage)

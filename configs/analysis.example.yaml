@@ -1,0 +1,6 @@
+seed: 20261015
+folds: 3
+confounding_shifts: [-1.0, 0.0, 1.0]
+processing_mode: local_only
+cluster: country
+minimum_subgroup: 50

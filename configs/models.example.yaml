@@ -1,0 +1,8 @@
+# No model ID is hardcoded as a benchmark fact: discover CURRENT IDs from GET /api/v1/models
+preferred_families: [openai, anthropic, google, meta-llama]
+max_models: 4
+max_cost_usd: 25.0
+prompt_variants: [base, counterargument]
+replications: 2
+temperature: 0.0
+strict_json_only_when_supported: true
