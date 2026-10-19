@@ -1,0 +1,14 @@
+method,assertions,literal_wrong_direction_all_worlds,practical_null_assertions_all_worlds,literal_wrong_direction_identified,practical_null_assertions_identified,frozen_composite_endpoint_unchanged
+always_abstain,0,0,0,0,0,True
+deepseek,4,0,0,0,0,True
+descriptive_association,0,0,0,0,0,True
+full_policy,16,0,0,0,0,True
+google,13,0,0,0,0,True
+llama,10,0,0,0,0,True
+no_llm_all_baseline,30,0,6,0,0,True
+no_llm_evidence,16,0,0,0,0,True
+openai,9,0,0,0,0,True
+raw_pool,17,0,0,0,0,True
+screened_critic,17,0,0,0,0,True
+screened_pool,17,0,0,0,0,True
+strict_majority,16,0,2,0,2,True
