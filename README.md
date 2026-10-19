@@ -1,18 +1,29 @@
 # Identification-aware causal uncertainty
 
-Exploratory executable evaluation of real LLM graph proposals, evidence screening, restricted backdoor identification, conditional estimation and abstention. Includes synthetic generators/tests and locally licensed SHARE analysis code. No SHARE data, empirical result tables, participant caches, credentials, private provider transcripts or protected scoring stores are included.
+An executed exploratory study of evidence-grounded real LLM graphs, graph uncertainty, restricted causal identification, conditional estimation and abstention. Includes synthetic generators, tested provider infrastructure and local licensed-data analysis code. SHARE data, empirical findings, credentials, private transcripts and live scoring stores are excluded.
 
-Install: `python -m pip install -e '.[dev]'`
-Check: `python scripts/check_protocol_freeze.py`
-Test: `pytest -q`
-Final experiment CLI: `PYTHONPATH=src python scripts/synthetic_final_v1.py --help`
+## Final evidence-grounded experiment
 
-The final batch has96 primary requests plus32 counterargument requests across24 public cards and four exact models. Paid execution requires explicit authorization, a private output directory outside this repository and a runtime key. Do not rerun completed experiments: use their sealed receipts. The public aggregate release reports all actual failures and costs. No confirmatory superiority, structural coverage or causal SHARE effect is established.
+[Complete reviewed synthetic results](outputs/synthetic/evidence_grounded_v31_reviewed/README.md): 120 public cards, 36 development and 84 evaluation cards, 20 declared families (14 evaluation units). Exactly four selected models, two prompt variants and two repetitions give 1,920 primary slots and 120 critics. The original provider-slug error and all other failures are preserved. Across the original and repaired runs: 2,528 unique requests, USD 2.3540124765 in reported generation charges, zero unknown costs. The corrected schedule reused 1,468 receipts without duplicate paid calls. Whole software ceiling USD 100.
 
-Synthetic authoring source intentionally contains generator definitions for reproducibility. Protected live truth files and raw responses are excluded. Local source hashes are prospective commitments, not external preregistration. Single-team scenario definitions are not independently validated mechanism families. Earlier negative comparisons and precision diagnostics remain limitations.
+The full policy and strong equally informed evidence-only baseline asserted on exactly the same 16/84 cards, with no recorded unjustified assertions. Majority voting had two wrong-sign assertions in 16 assertions. Neither primary policy attained the planned 30–50% assertion range. No confirmatory improvement, calibrated structural coverage or unconditional clinical intervention effect is established. The critic veto is redundant with the compiler under this fixed rule. Repeats are nested, not independent observations. Single-team authorship, known prose grammar, familiar causal motifs and sparse 14-family uncertainty limit generalization.
 
-See `docs/final_analysis_plan_exploratory.md`, frozen protocols and `outputs/synthetic/final_reviewed/` for reviewed synthetic aggregates when present. SHARE analyses require separate individual data registration and human disclosure review; the private empirical manuscript is deliberately omitted.
+Earlier 48- and 128-call pilots, frozen protocols and the severe prior undercoverage finding remain separate and unchanged. [Frozen plan](docs/final_study_v3_locked_plan.md), [routing amendment](docs/final_study_v31_routing_amendment.md) and [prospective scientific scope review](docs/final_study_v3_scientific_scope_review.md) define the claims this evidence supports.
 
-This is a clean-history release snapshot. No earlier repository history or private manuscript artifacts are imported. GitHub upload status is recorded in RELEASE_STATUS.md; local existence is not evidence of a remote publication.
+## Reproduction
 
-Empirical reproduction requires individually licensed SHARE files. The memory-only reader uses pandas; pyreadstat is optional. The observed local versions are in observed_environment.json; only synthetic tests ran in the release snapshot. No remote CI result is claimed.
+```sh
+python -m pip install -e '.[dev]'
+python scripts/check_protocol_freeze.py
+pytest -q
+PYTHONPATH=src python scripts/final_study_v3.py --help
+PYTHONPATH=src python scripts/final_study_v31.py --help
+```
+
+Local release verification: 447 tests passed; all 14 protected protocol entries passed, with one previously documented test-only erratum. Tests use synthetic fixtures and make no paid requests. Remote upload and CI status are recorded in [RELEASE_STATUS.md](RELEASE_STATUS.md).
+
+Authoring source is intentionally available for reproducibility. A new run must use a new private directory outside Git and its own prospective source commitment. Do not overwrite frozen results or impersonate the previous executed source revision. Paid calls require explicit authorization, exact models/providers, a runtime-only local key and bounded spending. Existing completed runs must resume from hash-bound receipts. Raw truth, observations, generation identifiers and provider bodies are protected; public exports use an explicit aggregate allowlist.
+
+The clinical manuscript, figures and aggregates remain local pending author, scientific and SHARE disclosure/license review. Individual SHARE registration is required for empirical reproduction. New source code supplies missing caseness, country-omission and selection diagnostics without releasing participant data. No journal submission or SHARE publication notification has been sent.
+
+This release has a clean research-code history, preserves the supplied GitHub repository initialization, and excludes original private research history. Bibliographic metadata are in references.bib. Full controlling handoff documents and private publication builders containing empirical findings are intentionally outside this release.

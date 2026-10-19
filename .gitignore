@@ -24,3 +24,13 @@ results_private/
 outputs/synthetic/llm_bridge_v2*/
 outputs/synthetic/v2_preflight*/
 outputs/synthetic/v24_*/
+
+# Live-run stores and local secrets must remain outside Git.
+*.key
+*.raw.json
+*.inflight.json
+**/receipts/
+**/legacy_receipts/
+**/truth.json
+**/generation.json
+**/exact_public_request_payloads_PRIVATE/

@@ -1,7 +1,7 @@
-# Executed release summary
+# Executed research status
 
-See RELEASE_STATUS.md and outputs/synthetic/final_reviewed/completed_run.json.
+The evidence-grounded 120-card experiment has completed with actual provider calls, a pre-truth prediction seal and separate scoring. The complete reviewed results, all method comparisons, 2,528 unique request attempts and USD 2.3540124765 in provider-reported charges are in outputs/synthetic/evidence_grounded_v31_reviewed/.
 
-The real expanded batch completed128 calls, all24 primary tasks scored, zero automatic retries and zero unknown costs. The original outer CLI exited2 in a post-score-only export; collection/prediction/scoring workers exited0. The separately verified diagnostic repair exited0 without changes to sealed predictions or scores. The release includes the corrected reporting code, original executed reporting source and a regression test. All431 release tests pass; frozen protocol14-file check passes with the pre-existing accepted erratum.
+Full policy and strong no-LLM baseline asserted on the same 16/84 evaluation cards, with zero recorded unjustified assertions and below-target assertion rates. Strict majority made two wrong-sign assertions. The all-baseline comparator made six proved-nonidentification and seven invalid-target errors. The critic cannot add vetoes under the fixed compiler rule. Technical failures remain distinct from epistemic abstentions. No methodological superiority or calibrated uncertainty is claimed.
 
-No methodological superiority is established. No-LLM and robust policies assert on the same four tasks; the single-graph majority cannot form. All model failures, prior severe precision undercoverage and unmatched assertion rates are retained.
+All prior frozen artifacts and negative findings remain intact. Local tests: 447 passed; protocol freeze: 14 entries, one documented test-only erratum, exit 0. SHARE findings and the completed clinical manuscript stay outside Git pending human scientific and disclosure review. See RELEASE_STATUS.md for actual remote status.

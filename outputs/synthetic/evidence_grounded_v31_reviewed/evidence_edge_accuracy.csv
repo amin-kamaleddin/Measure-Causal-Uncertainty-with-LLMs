@@ -1,0 +1,5 @@
+model,intention_to_evaluate_tasks,proposed_edges,valid_evidence_edges,unsupported_or_misclassified_edges,invalid_quote_edges,edge_support_precision,entailed_edge_recall,admitted_graphs,total_graphs,independent_human_review
+google/gemini-3.5-flash-lite,84,354,351,1,0,0.9915254237288136,0.7714285714285715,64,67,False
+openai/gpt-6-luna,84,349,340,9,3,0.9742120343839542,0.7142857142857143,59,67,False
+meta-llama/llama-4-maverick,84,853,694,150,4,0.813599062133646,0.9880952380952381,61,142,False
+deepseek/deepseek-v4.1-flash,84,142,135,1,7,0.9507042253521126,0.29285714285714287,25,27,False

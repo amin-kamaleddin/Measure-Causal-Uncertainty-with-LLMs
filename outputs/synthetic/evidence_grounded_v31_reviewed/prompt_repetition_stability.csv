@@ -1,0 +1,13 @@
+model,comparison,planned_pairs,typed_graph_pairs,equal_graph_sets,equality_fraction,independent_units
+google/gemini-3.5-flash-lite,base0_vs_base1,84,59,56,0.9491525423728814,14families_not84independent_pairs
+google/gemini-3.5-flash-lite,base0_vs_counterargument0,84,60,56,0.9333333333333333,14families_not84independent_pairs
+google/gemini-3.5-flash-lite,base0_vs_counterargument1,84,62,59,0.9516129032258065,14families_not84independent_pairs
+openai/gpt-6-luna,base0_vs_base1,84,46,42,0.9130434782608695,14families_not84independent_pairs
+openai/gpt-6-luna,base0_vs_counterargument0,84,46,41,0.8913043478260869,14families_not84independent_pairs
+openai/gpt-6-luna,base0_vs_counterargument1,84,47,44,0.9361702127659575,14families_not84independent_pairs
+meta-llama/llama-4-maverick,base0_vs_base1,84,84,51,0.6071428571428571,14families_not84independent_pairs
+meta-llama/llama-4-maverick,base0_vs_counterargument0,84,83,25,0.30120481927710846,14families_not84independent_pairs
+meta-llama/llama-4-maverick,base0_vs_counterargument1,84,83,27,0.3253012048192771,14families_not84independent_pairs
+deepseek/deepseek-v4.1-flash,base0_vs_base1,84,15,15,1.0,14families_not84independent_pairs
+deepseek/deepseek-v4.1-flash,base0_vs_counterargument0,84,16,15,0.9375,14families_not84independent_pairs
+deepseek/deepseek-v4.1-flash,base0_vs_counterargument1,84,14,13,0.9285714285714286,14families_not84independent_pairs

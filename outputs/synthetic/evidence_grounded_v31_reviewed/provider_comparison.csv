@@ -1,0 +1,5 @@
+model,planned_primary,planned_critic,attempted,valid_graph_or_critic,explicit_abstention,technical_failures,null,schema_failure,refusal,http_error,retried,cached_initial,cost_usd,unknown_costs,prompt_tokens,completion_tokens,providers
+google/gemini-3.5-flash-lite,480,120,600,508,92,0,0,0,0,0,0,0,1.2384565,0,1148255,357592,Google AI Studio
+openai/gpt-6-luna,480,0,480,287,193,0,0,0,0,0,0,0,0.275999,0,764552,360932,OpenAI
+meta-llama/llama-4-maverick,480,0,480,469,0,11,0,0,0,11,0,0,0.3303916125,0,623841,412210,DigitalOcean
+deepseek/deepseek-v4.1-flash,480,0,480,156,26,298,244,54,0,0,0,0,0.492160864,0,860232,3716409,OpenInference
