@@ -11,7 +11,7 @@ def csvcopy(source,target):
  with target.open(newline='') as f:assert list(csv.reader(f))==rows
 for name in allow:csvcopy(run/name,out/name)
 for name in ('actual_unique_provider_requests.csv','disjoint_decision_dispositions.csv','prompt_repetition_stability.csv','causal_decision_repetition_stability.csv','critic_fidelity.csv'):csvcopy(package/'tables'/name,out/name)
-for name in ('public_cards.json','catalog.json','calibration.json','leakage_audit.json','prior_packet_text_audit.json'):
+for name in ('public_cards.json','catalog.json','calibration.json','leakage_audit.json','prior_packet_text_audit.json','executed_environment.json'):
  shutil.copyfile(run/name,out/name)
 summary=json.loads((run/'summary.json').read_text());account=json.loads((package/'actual_execution_accounting.json').read_text());summary.update(actual_unique_request_accounting=account,scoring_integrity=integrity,software_cap_usd=100,primary_calls_in_corrected_schedule=1920,critic_calls_in_corrected_schedule=120,reused_primary_receipts=1440,reused_critic_receipts=28,new_requests_in_repaired_run=572,complete_predictions_sealed_before_truth=True,repeat_prediction_batch_sha256=seal['repeat_condition_predictions.json'],executed_source_sha256=json.loads((run/'commitment.json').read_text())['source_sha256'],calibration_reused_unchanged=True,raw_receipts_and_truth_exported=False,clinical_results_exported=False,review_scope='code and explicitly synthetic aggregates only; no claim of confirmatory superiority')
 (out/'completed_run.json').write_text(json.dumps(summary,indent=2)+'\n')

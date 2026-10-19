@@ -20,7 +20,7 @@ PYTHONPATH=src python scripts/final_study_v3.py --help
 PYTHONPATH=src python scripts/final_study_v31.py --help
 ```
 
-Local release verification: 447 tests passed; all 14 protected protocol entries passed, with one previously documented test-only erratum. Tests use synthetic fixtures and make no paid requests. Remote upload and CI status are recorded in [RELEASE_STATUS.md](RELEASE_STATUS.md).
+Local release verification: 447 tests passed; all 14 protected protocol entries passed, with one previously documented test-only erratum. Tests use synthetic fixtures and make no paid requests. Remote CI also passed447tests on Ubuntu/Python3.11 in218.98seconds,plus the frozen checker and all synthetic smoke checks: [verified workflow](https://github.com/amin-kamaleddin/LLM-Causal-Uncertainty/actions/runs/39183570679). Publication and historical CI failures are recorded in [RELEASE_STATUS.md](RELEASE_STATUS.md).
 
 Authoring source is intentionally available for reproducibility. A new run must use a new private directory outside Git and its own prospective source commitment. Do not overwrite frozen results or impersonate the previous executed source revision. Paid calls require explicit authorization, exact models/providers, a runtime-only local key and bounded spending. Existing completed runs must resume from hash-bound receipts. Raw truth, observations, generation identifiers and provider bodies are protected; public exports use an explicit aggregate allowlist.
 
