@@ -12,7 +12,7 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
       - run: python scripts/check_protocol_freeze.py
-      - run: pytest -q
+      - run: python -m pytest -q
       - run: python -m sharecausal.cli benchmark --quick --results-dir /tmp/share-synthetic
       - run: python -m sharecausal.cli benchmark-nonoracle --quick --results-dir /tmp/share-nonoracle
       - run: python -m sharecausal.cli llm-compare --dry-run
