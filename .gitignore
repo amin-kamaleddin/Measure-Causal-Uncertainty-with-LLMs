@@ -34,3 +34,8 @@ outputs/synthetic/v24_*/
 **/truth.json
 **/generation.json
 **/exact_public_request_payloads_PRIVATE/
+
+# Historical publication builders embed unreviewed private clinical findings.
+scripts/build_final_manuscript.py
+scripts/build_final_study_manuscript.py
+scripts/render_final_empirical_figures.py

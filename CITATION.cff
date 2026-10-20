@@ -1,0 +1,7 @@
+cff-version: 1.2.0
+message: "Please cite the software if used. SHARE datasets require separate citations and acknowledgement."
+title: "SHARE Causal Uncertainty: Identification-Aware Structural Sensitivity"
+version: 0.1.0
+date-released: 2026-10-15
+license: MIT
+type: software
